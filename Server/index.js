@@ -13,11 +13,8 @@ app.use('/api/users',userRouter)
 mongoose.connect('mongodb+srv://lilikheirandish051:Lilijoon@cluster0.j06bq.mongodb.net/Posts?retryWrites=true&w=majority',{
     userName:'lilikheirandish051',
     Password:'Lilijoon'
-}).then(()=>{
-    app.listen(3000, () => console.log('Server is running on port 3000'));
-}).catch((error)=>{
-    console.log(error);
-    
 })
+
+
 
 
