@@ -1,0 +1,19 @@
+{
+  "name": "ims-lili",
+
+  "version": "1.0.0",
+  "main": "index.js",
+ "scripts": {
+  "start": "concurrently \"npm run dev --prefix Client\" \"npm run dev --prefix Server/GraphQl\" \"npm run dev --prefix Server/RESTfulAPI\"",
+  "dev": "concurrently \"npm run dev --prefix Client\" \"npm run dev --prefix Server/GraphQl\" \"npm run dev --prefix Server/RESTfulAPI\""
+},
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^9.0.1",
+    "nodemon": "^3.1.7"
+  }
+}
