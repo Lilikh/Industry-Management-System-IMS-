@@ -77,7 +77,23 @@ const getManufacturers = async () => {
       throw new Error(`Failed to get manufacturers: ${error.message}`);
     }
   };
-  
+  const getTotalStaockValueByMnufacturer=async()=>{
+    try {
+        const stockValueByManufacturer=await productModel.aggregate([
+            { $group: { 
+                _id: "$manufacturer.name",
+                 totalStockValue: { 
+                    $sum: {$multiply:["$price", "$amounInStock"]},
+                 }
+                
+                } },
+            
+        ]);
+        return stockValueByManufacturer;
+    } catch (error) {
+       throw new Error(`Failed to calculate total stock value by manufacturer:${error.message}`) 
+    }
+  }
 
 
 
@@ -92,4 +108,5 @@ module.exports={
     getCriticalStockProduct,
     getTotalStockValue,
     getManufacturers,
+    getTotalStaockValueByMnufacturer,
 }
